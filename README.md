@@ -1,6 +1,6 @@
 # Simply Css Framework
 <b>Simply is a mini css framework, to create responsive websites faster.</b>  
-<i>It's just like a mini tailwind framework for especially core developers.</i>  
+<i>It's just like a mini tailwind css framework for especially core developers.</i>  
 
 <h2>How to use Simply CSS?</h2>
 1. You can just download or clone this repo in your local system.<br>
