@@ -1640,10 +1640,6 @@ svg {
     color: var(--main-color);
 }
 
-.article>* {
-    margin-bottom: 1.5em;
-}
-
 .line-height-2 {
     line-height: 2;
 }
