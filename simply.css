@@ -51,10 +51,11 @@ img {
     height: 100%;
     vertical-align: middle;
     object-fit: cover;
+    border-radius: 5px;
 }
 figcaption {
     text-align: center;
-    line-height: 1.5;
+    margin-top: 1em;
 }
 h1,
 .h1,
@@ -99,11 +100,20 @@ h6,
 a {
     color: inherit;
     text-decoration: none;
+    transition: .3s ease;
 }
 a:hover,
 a:focus,
 a:active {
-    opacity: .8;
+    color: var(--main-color);
+}
+.bg-dark a:hover,
+.bg-black a:hover,
+.bg-main-dark a:hover{
+    color: var(--light-color);
+}
+a.btn:hover{
+    color: var(--light-color);
 }
 ol,
 ul {
@@ -112,10 +122,10 @@ ul {
 form {
     max-width: 400px;
 }
-form>input {
+form  input {
     margin-bottom: 1em;
 }
-form>textarea {
+form textarea {
     margin-bottom: .5em;
 }
 input,
@@ -124,24 +134,18 @@ select,
 button {
     font: inherit;
 }
-input[type='text'],
-input[type='email'],
-input[type='password'],
-input[type='search'],
-input[type='number'],
-input[type='date'] {
+input,
+textarea{
     min-height: 2.5rem;
     padding: .5em;
     width: 100%;
+    display: block;
     border: var(--border);
+    border-radius: 5px;
     outline: none;
 }
 textarea {
     min-height: 5rem;
-    border: var(--border);
-    width: 100%;
-    padding: .5em;
-    outline: none;
     resize: vertical;
 }
 input:focus,
@@ -149,6 +153,8 @@ textarea:focus {
     border-color: var(--dark-grey);
 }
 input[type='color'] {
+    width: auto;
+    display: inline-block;
     cursor: pointer;
     padding: 0 .2em;
     min-height: 2rem;
@@ -157,15 +163,11 @@ input[type='file'] {
     cursor: pointer;
     display: block;
     background: var(--grey-light);
-    width: 100%;
     padding: 1em;
-}
-input[type="range"] {
-    width: 100%;
-    display: block;
 }
 input[type='checkbox'],
 input[type='radio'] {
+    width: auto;
     cursor: pointer;
     display: inline-block;
 }
@@ -350,7 +352,7 @@ svg {
 .card {
     background: var(--light-color);
     padding: 1.5em;
-    border-radius: 5px;
+    border-radius: .5em;
     overflow: hidden;
 }
 /* Displays */
@@ -398,8 +400,17 @@ svg {
 .flex-1 {
     flex: 1;
 }
+.gap-5px{
+    gap: 5px;
+}
+.gap-s{
+    gap: .5em;
+}
 .gap-1 {
     gap: 1em;
+}
+.gap-m{
+    gap: 1.5em;
 }
 .gap-2 {
     gap: 2em;
@@ -832,6 +843,9 @@ svg {
 .border-0 {
     border: 0;
 }
+.border-right-0{
+    border-right: 0;
+}
 .round-5px {
     border-radius: 5px;
     overflow: hidden;
@@ -948,23 +962,23 @@ svg {
 }
 .max-width-100px{
     max-width: 100px;
-    overflow: hidden;
+	overflow: hidden;
 }
 .max-width-150px{
     max-width: 150px;
-    overflow: hidden;
+	overflow: hidden;
 }
 .max-width-200px{
     max-width: 200px;
-    overflow: hidden;
+	overflow: hidden;
 }
 .max-width-250px{
     max-width: 250px;
-    overflow: hidden;
+	overflow: hidden;
 }
 .max-width-300px{
     max-width: 300px;
-    overflow: hidden;
+	overflow: hidden;
 }
 .width-vw {
     width: 100vw;
@@ -1054,6 +1068,18 @@ svg {
 .left-unset {
     left: unset;
 }
+.top-ng-full {
+    top: -100%;
+}
+.left-ng-full {
+    left: -100%;
+}
+.right-ng-full {
+    right: -100%;
+}
+.bottom-ng-full {
+    bottom: -100%;
+}
 .top {
     top: 0;
 }
@@ -1101,18 +1127,6 @@ svg {
 }
 .bottom-2 {
     bottom: 2em;
-}
-.top-ng-full {
-    top: -100%;
-}
-.left-ng-full {
-    left: -100%;
-}
-.right-ng-full {
-    right: -100%;
-}
-.bottom-ng-full {
-    bottom: -100%;
 }
 .absolute-center {
     position: absolute;
@@ -1404,12 +1418,21 @@ svg {
 }
 /* Line Heights */
 /* Random Classes */
-.article ol,
-.article ul {
+.post-body > *{
+    margin-bottom: 1em;
+}
+.post-body a{
+    color: var(--main-color);
+}
+.post-body ol,
+.post-body ul{
     padding-left: 2em;
 }
-.article a {
-    color: var(--main-color);
+.post-body ol{
+    list-style: decimal;
+}
+.post-body ul{
+    list-style: disc;
 }
 .white-space-wrap {
     white-space: pre-wrap;
@@ -1458,6 +1481,24 @@ svg {
 }
 /* Random Classes */
 /* Animations */
+.loader{
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid var(--main-color);
+    border-right-color: transparent;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+    animation: loading .5s linear infinite;
+}
+@keyframes loading{
+    from{
+        transform: rotate(0deg);
+    }to{
+        transform: rotate(360deg);
+    }
+}
 .fade-in {
     animation: fade-in 1s ease 1 forwards;
 }
@@ -1503,8 +1544,17 @@ svg {
     .md-flex-column-reverse {
         flex-direction: column-reverse;
     }
+    .md-gap-5px{
+        gap: 5px;
+    }
+    .md-gap-s{
+        gap: .5em;
+    }
     .md-gap-1 {
         gap: 1em;
+    }
+    .md-gap-m{
+        gap: 1.5em;
     }
     .md-gap-2 {
         gap: 2em;
@@ -1688,6 +1738,9 @@ svg {
     .md-width-300px {
         width: 300px;
     }
+    .md-width-auto{
+        width: auto;
+    }
     /* Widths */
     /* Heights */
     .md-height-150px {
@@ -1701,6 +1754,9 @@ svg {
     }
     .md-height-300px {
         height: 300px;
+    }
+    .md-height-auto{
+        height: auto;
     }
     /* Heights */
     /* Positions */
@@ -1755,6 +1811,18 @@ svg {
     .md-bottom-s {
         bottom: .5em;
     }
+    .md-top-ng-full {
+        top: -100%;
+    }
+    .md-left-ng-full {
+        left: -100%;
+    }
+    .md-right-ng-full {
+        right: -100%;
+    }
+    .md-bottom-ng-full {
+        bottom: -100%;
+    }
     .md-top-1 {
         top: 1em;
     }
@@ -1778,18 +1846,6 @@ svg {
     }
     .md-bottom-2 {
         bottom: 2em;
-    }
-    .md-top-ng-full {
-        top: -100%;
-    }
-    .md-left-ng-full {
-        left: -100%;
-    }
-    .md-right-ng-full {
-        right: -100%;
-    }
-    .md-bottom-ng-full {
-        bottom: -100%;
     }
     /* Positions */
     /* Random Classes */
