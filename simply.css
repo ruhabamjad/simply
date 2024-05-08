@@ -48,6 +48,7 @@ figure {
     height: auto;
 }
 img {
+    height: 100%;
     vertical-align: middle;
     object-fit: cover;
 }
@@ -947,18 +948,23 @@ svg {
 }
 .max-width-100px{
     max-width: 100px;
+	overflow: hidden;
 }
 .max-width-150px{
     max-width: 150px;
+	overflow: hidden;
 }
 .max-width-200px{
     max-width: 200px;
+	overflow: hidden;
 }
 .max-width-250px{
     max-width: 250px;
+	overflow: hidden;
 }
 .max-width-300px{
     max-width: 300px;
+	overflow: hidden;
 }
 .width-vw {
     width: 100vw;
