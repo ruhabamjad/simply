@@ -7,4 +7,4 @@ It's just like a mini tailwind css framework for especially core developers.
 2. You can also use simply css framework through a cdn link from below.
 
 <h3>CDN Link</h3>  
-[https://cdn.jsdelivr.net/gh/ruhabamjad/simply@latest/simply.min.css]
+[https://cdn.jsdelivr.net/gh/ruhabamjad/simply@latest/simply.css]
