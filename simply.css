@@ -350,7 +350,7 @@ svg {
 .card {
     background: var(--light-color);
     padding: 1.5em;
-    border-radius: .5em;
+    border-radius: 5px;
     overflow: hidden;
 }
 /* Displays */
