@@ -12,15 +12,19 @@ Website    :    https://www.techbegginer.com/
     box-sizing: border-box;
 }
 :root {
-    --main-color: hsl(218, 72%, 46%);
-    --main-light: hsl(218, 72%, 90%);
-    --main-dark: hsl(218, 72%, 20%);
+    --main-color: hsl(214, 81%, 49%);
+    --main-light: hsl(214, 81%, 90%);
+    --main-dark: hsl(214, 81%, 10%);
     --dark-color: #333;
     --dark-grey: #777;
     --black-color: #000;
     --grey-color: #ddd;
     --grey-light: #eee;
     --light-color: #fff;
+    --danger-color: #dc3545;
+    --success-color: #198754;
+    --info-color: #0098b6;
+    --warning-color: #ffc107;
     --body-bg: #fff;
     --border: 1px solid var(--grey-color);
 }
@@ -102,9 +106,7 @@ a {
     text-decoration: none;
     transition: .3s ease;
 }
-a:hover,
-a:focus,
-a:active {
+a:hover {
     color: var(--main-color);
 }
 .bg-dark a:hover,
@@ -126,19 +128,19 @@ form  .form-group {
     margin-bottom: 1em;
 }
 form label{
-    display: block;
-    margin-bottom: .5em;
+    cursor: pointer;
+    display: inline-block;
 }
 input,
 textarea,
 select,
-button {
+button,
+optgroup {
     font: inherit;
 }
 input,
 textarea{
-    min-height: 2.5rem;
-    padding: .5em;
+    padding: .8em;
     width: 100%;
     display: block;
     border: var(--border);
@@ -146,7 +148,7 @@ textarea{
     outline: none;
 }
 textarea {
-    min-height: 5rem;
+    min-height: 10rem;
     resize: vertical;
 }
 input:focus,
@@ -162,9 +164,17 @@ input[type='color'] {
 }
 input[type='file'] {
     cursor: pointer;
-    display: block;
+    padding: 0;
+}
+::-webkit-file-upload-button,
+::file-selector-button {
+    font: inherit;
+    cursor: pointer;
+    border: 0;
+    padding: .5em;
     background: var(--grey-light);
-    padding: 1em;
+    margin-right: 1em;
+    -webkit-appearance: button;
 }
 input[type='checkbox'],
 input[type='radio'] {
@@ -173,7 +183,7 @@ input[type='radio'] {
     display: inline-block;
 }
 fieldset {
-    border: var(--grey-color);
+    border: var(--border);
     padding: 1em;
 }
 fieldset legend {
@@ -183,7 +193,15 @@ select {
     padding: .5em 1em;
     cursor: pointer;
     border: var(--border);
+    border-radius: 5px;
+    width: 100%;
     outline: 0;
+    appearance: none;
+    -webkit-appearance: none; 
+    -moz-appearance:none ;
+    position: relative;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>') no-repeat;
+    background-position: calc(100% - 1rem) center;
 }
 select:disabled {
     opacity: .5;
@@ -209,8 +227,9 @@ button:disabled {
     cursor: not-allowed;
 }
 table {
-    width: max-content;
+    width: 100%;
     border-collapse: collapse;
+    border: var(--border);
 }
 table caption {
     padding-bottom: 1em;
@@ -226,6 +245,7 @@ table th {
     text-align: left;
     background: var(--grey-light);
     text-transform: uppercase;
+    padding: 1em;
 }
 blockquote {
     padding: 2em 3em;
@@ -883,6 +903,18 @@ svg {
 .round-0{
     border-radius: 0;
 }
+.round-top-left-0{
+    border-top-left-radius: 0;
+}
+.round-top-right-0{
+    border-top-right-radius: 0;
+}
+.round-bottom-left-0{
+    border-bottom-left-radius: 0;
+}
+.round-bottom-right-0{
+    border-bottom-right-radius: 0;
+}
 /* Texts, Borders and Rounds */
 /* Widths */
 .width-10 {
@@ -1055,8 +1087,24 @@ svg {
     max-height: 0;
     overflow: hidden;
 }
+.max-height-50px{
+    max-height: 50px;
+    overflow: hidden;
+}
+.max-height-60px{
+    max-height: 60px;
+    overflow: hidden;
+}
+.max-height-70px{
+    max-height: 70px;
+    overflow: hidden;
+}
 .max-height-400px{
     max-height: 400px;
+    overflow: hidden;
+}
+.max-height-100vh{
+    max-height: 100vh;
 }
 /* Heights */
 /* Positions */
@@ -1134,6 +1182,18 @@ svg {
 }
 .bottom-1 {
     bottom: 1em;
+}
+.top-m{
+    top: 1.5em;
+}
+.right-m{
+    right: 1.5em;
+}
+.bottom-m{
+    bottom: 1.5em;
+}
+.left-m{
+    left: 1.5em;
 }
 .top-2 {
     top: 2em;
@@ -1366,6 +1426,22 @@ svg {
     background: var(--light-color);
     color: var(--black-color);
 }
+.btn-danger{
+    background: var(--danger-color);
+    color: var(--light-color);
+}
+.btn-success{
+    background: var(--success-color);
+    color: var(--light-color);
+}
+.btn-info{
+    background: var(--info-color);
+    color: var(--light-color);
+}
+.btn-warning{
+    background: var(--warning-color);
+    color: var(--light-color);
+}
 .btn-outline{
     background: transparent;
     border: 1px solid var(--dark-color);
@@ -1395,6 +1471,26 @@ svg {
     border: 1px solid var(--grey-color);
     color: var(--grey-color);
 }
+.btn-outline-danger{
+    background: transparent;
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+}
+.btn-outline-success{
+    background: transparent;
+    border: 1px solid var(--success-color);
+    color: var(--success-color);
+}
+.btn-outline-info{
+    background: transparent;
+    border: 1px solid var(--info-color);
+    color: var(--info-color);
+}
+.btn-outline-warning{
+    background: transparent;
+    border: 1px solid var(--warning-color);
+    color: var(--warning-color);
+}
 /* Buttons Primary, Secondary and Outlines */
 /* Tables */
 .table-main th{
@@ -1413,11 +1509,15 @@ svg {
     background: var(--black-color);
     color: var(--light-color);
 }
-.table-even-bg tr:nth-child(even){
-    background: #f9f9f9;
-}
+.table-even-bg tr:nth-child(even),
 .table-odd-bg tr:nth-child(odd){
     background: #f9f9f9;
+}
+.table-even-bg td,
+.table-even-bg th,
+.table-odd-bg td,
+.table-odd-bg td{
+    border: 0;
 }
 /* Tables */
 /* Border Colors */
