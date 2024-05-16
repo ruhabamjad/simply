@@ -112,10 +112,12 @@ a:hover {
 }
 .bg-dark a:hover,
 .bg-black a:hover,
-.bg-main-dark a:hover {
-    color: var(--light-color);
-}
-a.btn:hover {
+.bg-main-dark a:hover,
+.bg-main a:hover,
+.btn-main:hover,
+.btn-dark:hover,
+.btn-main-dark:hover,
+.btn-black:hover{
     color: var(--light-color);
 }
 ol,
@@ -1495,6 +1497,9 @@ svg, i{
 .box-shadow-2 {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
+.box-shadow-none{
+    box-shadow: none;
+}
 /* Transitions and Shadows */
 /* Buttons Primary, Secondary and Outlines */
 .btn-main {
@@ -2361,6 +2366,9 @@ svg, i{
     }
     .md-scale-1 {
         transform: scale(1);
+    }
+    .md-box-shadow-none{
+        box-shadow: none;
     }
     /* Random Classes */
 }
